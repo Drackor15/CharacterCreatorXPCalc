@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdArcCharacterCreatorXPCalc", "EdArcCharacterCreatorXPCalc\EdArcCharacterCreatorXPCalc.csproj", "{D253667A-1707-421A-A102-66D077C4058E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D253667A-1707-421A-A102-66D077C4058E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D253667A-1707-421A-A102-66D077C4058E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D253667A-1707-421A-A102-66D077C4058E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D253667A-1707-421A-A102-66D077C4058E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1A320E7-1375-4027-9667-1E0D8514C61F}
+	EndGlobalSection
+EndGlobal
