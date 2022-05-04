@@ -1,0 +1,386 @@
+<Project>
+  <Name>EdArcCharacterCreatorXPCalc</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.ClassDiagram" assembly="NClass.DiagramEditor, Version=2.8.0.1, Culture=neutral, PublicKeyToken=null">
+    <Name>ModelStructure</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Character</Name>
+        <Access>Public</Access>
+        <Location left="873" top="710" />
+        <Size width="215" height="340" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static int instances</Member>
+        <Member type="Field">private int characterID</Member>
+        <Member type="Property">public int CharacterID { get; }</Member>
+        <Member type="Property">public ObservableCollection&lt;ClassAbility&gt; CharacterAbilities { get; set; }</Member>
+        <Member type="Property">public Health CharacterHealth { get; set; }</Member>
+        <Member type="Property">public Mana CharacterMana { get; set; }</Member>
+        <Member type="Property">public ObservableCollection&lt;Language&gt; CharacterLanguges { get; set; }</Member>
+        <Member type="Property">public ObservableCollection&lt;Proficiency&gt; CharacterProficiciencies { get; set; }</Member>
+        <Member type="Property">public ObservableCollection&lt;InstrumentsGamesProficiency&gt; CharacterInstrumentsGames { get; set; }</Member>
+        <Member type="Property">public AbilityScore CharacterStrength { get; set; }</Member>
+        <Member type="Property">public AbilityScore Dexterity { get; set; }</Member>
+        <Member type="Property">public AbilityScore Constitution { get; set; }</Member>
+        <Member type="Property">public AbilityScore Intelligence { get; set; }</Member>
+        <Member type="Property">public AbilityScore Wisdom { get; set; }</Member>
+        <Member type="Property">public AbilityScore Charisma { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ClassAbility</Name>
+        <Access>Internal</Access>
+        <Location left="317" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Language</Name>
+        <Access>Internal</Access>
+        <Location left="1088" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Proficiency { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Proficiency</Name>
+        <Access>Internal</Access>
+        <Location left="1270" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Modifier { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Proficiency applies to Proficiencies/Skills for tools, weapons, and vehicles</Text>
+        <Location left="1270" top="664" />
+        <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>InstrumentsGamesProficiency</Name>
+        <Access>Internal</Access>
+        <Location left="1457" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Modifier { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Health</Name>
+        <Access>Internal</Access>
+        <Location left="506" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int CharacterHealth { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Mana</Name>
+        <Access>Internal</Access>
+        <Location left="698" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int CharacterMana { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AbilityScore</Name>
+        <Access>Internal</Access>
+        <Location left="1645" top="363" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>XPCumulative</Name>
+        <Access>Internal</Access>
+        <Location left="1379" top="131" />
+        <Size width="162" height="104" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public virtual void CalcCumulative()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>XPNonCumulative</Name>
+        <Access>Internal</Access>
+        <Location left="506" top="134" />
+        <Size width="163" height="104" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public virtual void CalcNonCumulative()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IDescribableCharacterTrait</Name>
+        <Access>Public</Access>
+        <Location left="791" top="105" />
+        <Size width="162" height="101" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">string Name { get; set; }</Member>
+        <Member type="Property">string Description { get; set; }</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IXPPrices</Name>
+        <Access>Public</Access>
+        <Location left="993" top="105" />
+        <Size width="162" height="101" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">int[] XPPrices { get; set; }</Member>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Make XPPrices a private set</Text>
+        <Location left="993" top="18" />
+        <Size width="160" height="75" />
+      </Entity>
+    </Entities>
+    <Containers />
+    <Relationships>
+      <Relationship type="Association" first="0" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="7">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="2" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1544</X>
+          <Y>336</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="1" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="6" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>587</X>
+          <Y>338</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>850</X>
+          <Y>310</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1048</X>
+          <Y>312</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="6" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1048</X>
+          <Y>312</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="7" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1048</X>
+          <Y>312</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1169</X>
+          <Y>338</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1105</X>
+          <Y>231</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1105</X>
+          <Y>231</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="5" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1105</X>
+          <Y>231</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="8" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1105</X>
+          <Y>231</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>902</X>
+          <Y>234</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="3" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>902</X>
+          <Y>234</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="5" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>902</X>
+          <Y>234</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="0" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>980</X>
+          <Y>685</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>878</X>
+          <Y>231</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.ClassDiagram" assembly="NClass.DiagramEditor, Version=2.8.0.1, Culture=neutral, PublicKeyToken=null">
+    <Name>ViewModelStructure</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>ViewModelBase</Name>
+        <Access>Internal</Access>
+        <Location left="420" top="47" />
+        <Size width="271" height="140" />
+        <Collapsed>False</Collapsed>
+        <Member type="Event">public event PropertyChangedEventHandler PropertyChanged</Member>
+        <Member type="Method">protected bool SetProperty&lt;T&gt;(ref T field, T newValue, string propertyName = null)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MainViewModel</Name>
+        <Access>Internal</Access>
+        <Location left="179" top="252" />
+        <Size width="277" height="139" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private ObservableCollection&lt;Character&gt; characterLibrary</Member>
+        <Member type="Property">public ObservableCollection&lt;Character&gt; CharacterLibrary { get; set; }</Member>
+        <Member type="Constructor">public MainViewModel()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EditorViewModel</Name>
+        <Access>Internal</Access>
+        <Location left="653" top="252" />
+        <Size width="255" height="139" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Character characterToEdit</Member>
+        <Member type="Constructor">public EditorViewModel(Character CharacterToEdit)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Both MainViewModel &amp; EditorViewModel have access to the Data Types within the Model Structure</Text>
+        <Location left="478" top="414" />
+        <Size width="160" height="75" />
+      </Entity>
+    </Entities>
+    <Containers />
+    <Relationships>
+      <Relationship type="Generalization" first="1" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="2" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
