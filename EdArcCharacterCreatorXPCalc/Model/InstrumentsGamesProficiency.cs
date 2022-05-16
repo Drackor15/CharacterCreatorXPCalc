@@ -9,24 +9,50 @@ using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 
 namespace EdArcCharacterCreatorXPCalc.Model {
+
 	[DataContract]
-	internal class InstrumentsGamesProficiency : XPCumulative, IXPPrices, IDescribableCharacterTrait {
+	internal class InstrumentsGamesProficiency : XPCumulative, IDescribableCharacterTrait {
+		// Merge with properties class but insert this class's enum?
+
+		#region XPPrices ENUM
+		public enum XPPrices {     // MOVE TO A PUBLIC NAMESPACE?
+			plusTwo = 50,
+			plusThree = 200,
+			plusFour = 400,
+			plusFive = 600,
+			plusSix = 800
+		}
+		#endregion
+
+		#region Fields
+		private int modifier;
+		private string name;
+		private string description;
+		#endregion
+
+		#region Properties
 		[DataMember]
 		public int Modifier {
 			get {
-				throw new NotImplementedException();
+				return modifier;
 			}
 			set {
-				throw new NotImplementedException();
+				modifier = value;
 			}
 		}
 
-		[IgnoreDataMember]
-        public int[] XPPrices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		[DataMember]
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public string Name {
+			get { return name; }
+			set { name = value; }
+		}
+
 		[DataMember]
-        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    }
+		public string Description {
+			get { return description; }
+			set { description = value; }
+		}
+		#endregion
+	}
 
 }

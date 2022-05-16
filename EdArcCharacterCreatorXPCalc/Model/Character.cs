@@ -9,10 +9,13 @@ using System.Xml;
 using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
+
 	[DataContract]
 	internal class Character : IDescribableCharacterTrait {
+
 		[DataMember]
 		private static int instances;
+
 		[DataMember]
 		private int characterID;
 

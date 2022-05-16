@@ -9,19 +9,29 @@ using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
 	[DataContract]
-	internal class Mana : XPNonCumulative, IXPPrices {
-		[DataMember]
+	internal class Mana : XPNonCumulative {
+
+		#region XPPrices ENUM
+		public enum XPPrices {     // MOVE TO A PUBLIC NAMESPACE?
+			increaseMana = 200
+		}
+		#endregion
+
+		#region Fields
+		private int characterMana;
+        #endregion
+
+        #region Properties
+        [DataMember]
 		public int CharacterMana {
 			get {
-				throw new NotImplementedException();
+				return characterMana;
 			}
 			set {
-				throw new NotImplementedException();
+				characterMana = value;
 			}
 		}
-
-		[IgnoreDataMember]
-        public int[] XPPrices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        #endregion
     }
 }
 

@@ -8,11 +8,13 @@ using System.Xml;
 using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
+
 	[DataContract]
 	internal class Health : XPNonCumulative, IXPPrices {
+
 		[DataMember]
 		public int CharacterHealth {
-			get {
+            get {
 				throw new NotImplementedException();
 			}
 			set {
