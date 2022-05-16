@@ -12,7 +12,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 
 	[DataContract]
 	internal class InstrumentsGamesProficiency : XPCumulative, IDescribableCharacterTrait {
-		// Merge with properties class but insert this class's enum?
+		// Merge with properties class but insert this class's enum? blah blah
 
 		#region XPPrices ENUM
 		public enum XPPrices {     // MOVE TO A PUBLIC NAMESPACE?
