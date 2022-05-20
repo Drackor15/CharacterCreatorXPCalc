@@ -2,12 +2,11 @@
 using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
-
     /*
-     * A class that describes character objects with names, descriptions, & modifiers
+     * A class used for abilities & feats. Character objects which share similar names & descriptions
      */
     [DataContract]
-    internal class Proficiency : INamedCharacterTrait, IDescribableCharacterTrait, IProficiecyModifier {
+    internal class AbilitiesFeats : INamedCharacterTrait, IDescribableCharacterTrait {
 
         #region Fields
         [DataMember]
@@ -15,9 +14,6 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 
         [DataMember]
         private string description;
-
-        [DataMember]
-        private int modifier;
         #endregion
 
         #region Properties
@@ -29,21 +25,6 @@ namespace EdArcCharacterCreatorXPCalc.Model {
         public string Description {
             get { return description; }
             set { description = value; }
-        }
-
-        public int Modifier {
-            get {
-                return modifier;
-            }
-
-            set {
-                if (value <= 6 && value >= -6) {
-                    modifier = value;
-                }
-                else {
-                    throw new System.ArgumentOutOfRangeException();
-                }
-            }
         }
         #endregion
     }
