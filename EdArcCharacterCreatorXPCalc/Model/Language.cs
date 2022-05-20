@@ -1,59 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
-using System.Xml;
+﻿using System.Runtime.Serialization;
 using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
-	[DataContract]
-	internal class Language : XPCumulative, IDescribableCharacterTrait {
 
-		#region XPPrices ENUM
-		public enum XPPrices {     // MOVE TO A PUBLIC NAMESPACE?
-			increaseMana = 300
-		}
-		#endregion
+    /*
+     * A class that used for language character objects
+     */
+    [DataContract]
+    internal class Language : INamedCharacterTrait, ILanguageModifier {
+        #region Fields
+        [DataMember]
+        private string name;
 
-		#region Fields
-		private string proficiency;
-		private string name;
-		private string description;
+        [DataMember]
+        private string modifier;
         #endregion
 
         #region Properties
-        [DataMember]
-		public string Proficiency {
-			get {
-				return proficiency;
-			}
-			set {
-				proficiency = value;
-			}
-		}
-
-		[DataMember]
         public string Name {
-			get {
-				return name;
-			}
-			set {
-				name = value;
-			}
-		}
+            get { return name; }
+            set { name = value; }
+        }
 
-		[DataMember]
-        public string Description {
-			get {
-				return description;
-			}
-			set {
-				description = value;
-			}
-		}
+        public string Modifier {
+            get {
+                return modifier;
+            }
+
+            set {
+                modifier = value;
+            }
+        }
         #endregion
     }
-
 }
