@@ -24,20 +24,13 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         public MainViewModel() {
             DataContractSerializer reader = new DataContractSerializer(typeof(ObservableCollection<Character>));
 
-            var path = "C:/ImagiSpark/applications/XPCalculator";
-            if (!Directory.Exists(path)) {
-                Directory.CreateDirectory(path);
-            }
+            var path = "C:/ImagiSpark/applications/XPCalculator/CharacterLibrary.xml";
 
-            path += "/CharacterLibrary.xml";
-            if (!File.Exists(path)) {
-                XmlWriter newFile = XmlWriter.Create(path);
-                newFile.Close();
+            if (File.Exists(path)) {
+                XmlReader file = XmlReader.Create(path);
+                characterLibrary = (ObservableCollection<Character>)reader.ReadObject(file);
+                file.Close();
             }
-
-            XmlReader file = XmlReader.Create(path);
-            characterLibrary = (ObservableCollection<Character>)reader.ReadObject(file);
-            file.Close();
         }
     }
 
