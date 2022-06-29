@@ -22,7 +22,7 @@ namespace EdArcCharacterCreatorXPCalc.View {
         public MainWindow() {
             var mainViewModel = new MainViewModel();
 
-            DataContext = mainViewModel.CharacterLibrary;
+            DataContext = mainViewModel;
             InitializeComponent();
         }
     }

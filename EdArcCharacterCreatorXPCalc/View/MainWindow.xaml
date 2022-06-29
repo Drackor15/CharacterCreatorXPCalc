@@ -5,48 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EdArcCharacterCreatorXPCalc.View"
         xmlns:model="clr-namespace:EdArcCharacterCreatorXPCalc.Model"
+        xmlns:viewmodel="clr-namespace:EdArcCharacterCreatorXPCalc.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
-        Title="XP Calculator - EdArc 1e" Height="450" Width="800">
-    
-    <!--Window UI-->
-    <Grid Margin="10">
-        <!--Grid Layout-->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
+        Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="400">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        
-        <!--Wrap Panel Bound to Character Library-->
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel IsItemsHost="True" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+    <!-- Window UI -->
+    <DockPanel>
 
-            <!-- Custom Display for each instance of the Person Data Type -->
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type model:Character}">
-                    <Grid>
-                        <Border BorderBrush="AntiqueWhite" Background="AntiqueWhite" Height="30" Width="100" CornerRadius="7" >
+        <!-- Application Ribbon -->
+        <ToolBarTray Background="WhiteSmoke" DockPanel.Dock="Top">
+            <ToolBar Band="1" BandIndex="1" Background="WhiteSmoke">
+                <Button MinHeight="25" MinWidth="25" ToolTip="Save Library">
+                    <!-- bind to a command -->
+                    <Image Source="UIImages/Icon_Save.png" MinHeight="25" MinWidth="25"></Image>
+                </Button>
+
+                <!--<MenuItem ToolTip="Add Character" Height="30" Width="30">
+                    <MenuItem.Icon>
+                        <Image Source="UIImages/add.png" Height="20" Width="15" Margin="0,0,0,0"/>
+                    </MenuItem.Icon>
+                    <MenuItem.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Lvl 0"/>
+                            <MenuItem Header="Lvl 1"/>
+                            <MenuItem Header="Lvl 2"/>
+                        </ContextMenu>
+                    </MenuItem.ContextMenu>
+                </MenuItem>-->
+
+                <Button Command="{Binding Path=DisplayAddCharacter}">
+                    <Image Source="UIImages/add.png"></Image>
+                    <Button.ContextMenu>
+                        <ContextMenu IsOpen="{Binding Path=IsDisplayAddCharacter}">
+                            <MenuItem Header="Lvl 0" />
+                            <MenuItem Header="Lvl 1"/>
+                            <MenuItem Header="Lvl 2"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+                <!--<RibbonSplitButton LargeImageSource="UIImages/add.png" SmallImageSource="UIImages/arrow_down_simple.png">
+
+                </RibbonSplitButton>-->
+
+                <!--<Button MinHeight="25" MinWidth="25" FontSize="28">
+                    -->
+                <!-- bind to a command -->
+                <!--
+                    +
+                </Button>-->
+
+            </ToolBar>
+        </ToolBarTray>
+
+        <!-- Character Display -->
+        <Grid>
+            <!-- Grid Layout -->
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+
+            <!-- Wrap Panel Bound to Character Library -->
+            <ScrollViewer Grid.Row="1">
+                <ItemsControl Grid.Row="2" ItemsSource="{Binding Path=CharacterLibrary}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <!-- Custom Display for each instance of the Person Data Type -->
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type model:Character}">
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+                                <Border BorderBrush="AntiqueWhite" Background="AntiqueWhite" Height="30" Width="100" CornerRadius="7" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-                                <ContentPresenter Grid.Column="0" Content="{Binding Name}" VerticalAlignment="Center"></ContentPresenter>
-                                <ContentPresenter Grid.Column="1" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Right"></ContentPresenter>
+                                        <ContentPresenter Grid.Column="0" Content="{Binding Path=Name}" VerticalAlignment="Center"></ContentPresenter>
+                                        <ContentPresenter Grid.Column="1" Content="{Binding Path=Description}" VerticalAlignment="Center" HorizontalAlignment="Right"></ContentPresenter>
+                                    </Grid>
+                                </Border>
                             </Grid>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
 
-    </Grid>
+        </Grid>
+    </DockPanel>
+
+
 </Window>
