@@ -15,25 +15,28 @@
         <!-- Application Ribbon -->
         <ToolBarTray Background="WhiteSmoke" DockPanel.Dock="Top">
             <ToolBar Band="1" BandIndex="1" Background="WhiteSmoke">
-                <Button MinHeight="25" MinWidth="25" ToolTip="Save Library">
+                
+                <Button Height="31" Width="31" ToolTip="Save Library">
                     <!-- bind to a command -->
-                    <Image Source="UIImages/Icon_Save.png" MinHeight="25" MinWidth="25"></Image>
+                    <Image Source="UIImages/Icon_Save.png" Height="25" Width="25"></Image>
                 </Button>
 
-                <!--<MenuItem ToolTip="Add Character" Height="30" Width="30">
-                    <MenuItem.Icon>
-                        <Image Source="UIImages/add.png" Height="20" Width="15" Margin="0,0,0,0"/>
-                    </MenuItem.Icon>
-                    <MenuItem.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Lvl 0"/>
-                            <MenuItem Header="Lvl 1"/>
-                            <MenuItem Header="Lvl 2"/>
-                        </ContextMenu>
-                    </MenuItem.ContextMenu>
-                </MenuItem>-->
-
-                <Button Command="{Binding Path=DisplayAddCharacter}">
+                <Menu Height="31" Width="31" ToolTip="New Character">
+                    <MenuItem Height="31" Width="31">
+                        <MenuItem.Icon>
+                            <Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="Lvl 0"/>
+                        <MenuItem Header="Lvl 1"/>
+                        <MenuItem Header="Lvl 2"/>
+                        <MenuItem Header="Lvl 3"/>
+                        <MenuItem Header="Lvl 4"/>
+                        <MenuItem Header="Lvl 5"/>
+                        <MenuItem Header="Lvl 6"/>
+                    </MenuItem>
+                </Menu>
+                
+                <!--<Button Command="{Binding Path=DisplayAddCharacter}">
                     <Image Source="UIImages/add.png"></Image>
                     <Button.ContextMenu>
                         <ContextMenu IsOpen="{Binding Path=IsDisplayAddCharacter}">
@@ -42,19 +45,7 @@
                             <MenuItem Header="Lvl 2"/>
                         </ContextMenu>
                     </Button.ContextMenu>
-                </Button>
-
-                <!--<RibbonSplitButton LargeImageSource="UIImages/add.png" SmallImageSource="UIImages/arrow_down_simple.png">
-
-                </RibbonSplitButton>-->
-
-                <!--<Button MinHeight="25" MinWidth="25" FontSize="28">
-                    -->
-                <!-- bind to a command -->
-                <!--
-                    +
                 </Button>-->
-
             </ToolBar>
         </ToolBarTray>
 

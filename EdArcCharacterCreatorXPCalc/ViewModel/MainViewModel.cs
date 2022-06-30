@@ -10,12 +10,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
     internal class MainViewModel : ViewModelBase {
 
-        private bool isDisplayAddCharacter;
-        public bool IsDisplayAddCharacter {
-            get { return isDisplayAddCharacter; }
-            set { isDisplayAddCharacter = value; }
-        }
-
         #region Application Commands
         private readonly DelegateCommand displayAddCharacter;
         public ICommand DisplayAddCharacter => displayAddCharacter;
@@ -23,12 +17,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
         private void OnDisplayAddCharacter(object commandParameter) {
             /*command actions*/
-            if (IsDisplayAddCharacter == false) {
-                IsDisplayAddCharacter = true;
-            }
-            else {
-                IsDisplayAddCharacter = false;
-            }
 
 
             //displayAddCharacter.InvokeCanExecuteChanged();
