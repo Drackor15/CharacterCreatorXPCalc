@@ -9,12 +9,14 @@
   <ItemGroup>
     <None Remove="View\UIImages\add.png" />
     <None Remove="View\UIImages\arrow_down_simple.png" />
+    <None Remove="View\UIImages\edit_modern.png" />
     <None Remove="View\UIImages\Icon_Save.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="View\UIImages\add.png" />
     <Resource Include="View\UIImages\arrow_down_simple.png" />
+    <Resource Include="View\UIImages\edit_modern.png" />
     <Resource Include="View\UIImages\Icon_Save.png" />
   </ItemGroup>
 

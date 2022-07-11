@@ -3,193 +3,205 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EdArcCharacterCreatorXPCalc.View"
         xmlns:model="clr-namespace:EdArcCharacterCreatorXPCalc.Model"
         xmlns:viewmodel="clr-namespace:EdArcCharacterCreatorXPCalc.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         xmlns:dataTypes="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="400">
 
-    <!-- Window UI -->
-    <DockPanel>
+	<!-- Window UI -->
+	<DockPanel>
 
-        <!-- Application Ribbon -->
-        <ToolBarTray Background="WhiteSmoke" DockPanel.Dock="Top">
-            <ToolBar Band="1" BandIndex="1" Background="WhiteSmoke">
-                
-                <Button Height="31" Width="31" ToolTip="Save Library">
-                    <!-- bind to a command -->
-                    <Image Source="UIImages/Icon_Save.png" Height="25" Width="25"></Image>
-                </Button>
+		<!-- Application Ribbon -->
+		<ToolBarTray Background="WhiteSmoke" DockPanel.Dock="Top">
+			<ToolBar Band="1" BandIndex="1" Background="WhiteSmoke">
 
-                <Menu Height="31" Width="31" ToolTip="New Character">
-                    <MenuItem Height="31" Width="31">
-                        <MenuItem.Icon>
-                            <Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
-                        </MenuItem.Icon>
-                        <MenuItem Header="Lvl 0" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>0</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 1" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 2" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>900</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 3" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>1500</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 4" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>3300</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 5" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>7100</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 6" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>14600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 7" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>23600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 8" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>34600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 9" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>48600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 10" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>64600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 11" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>85600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 12" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>100600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 13" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>120600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 14" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>140600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 15" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>165600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 16" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>195600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 17" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>225600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 18" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>265600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 19" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>305600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                        <MenuItem Header="Lvl 20" Command="{Binding Path=AddCharacterCommand}">
-                            <MenuItem.CommandParameter>
-                                <dataTypes:Int32>355600</dataTypes:Int32>
-                            </MenuItem.CommandParameter>
-                        </MenuItem>
-                    </MenuItem>
-                </Menu>
-                
-                <!--<Button Command="{Binding Path=DisplayAddCharacter}">
-                    <Image Source="UIImages/add.png"></Image>
-                    <Button.ContextMenu>
-                        <ContextMenu IsOpen="{Binding Path=IsDisplayAddCharacter}">
-                            <MenuItem Header="Lvl 0" />
-                            <MenuItem Header="Lvl 1"/>
-                            <MenuItem Header="Lvl 2"/>
-                        </ContextMenu>
-                    </Button.ContextMenu>
-                </Button>-->
-            </ToolBar>
-        </ToolBarTray>
+				<Button Height="31" Width="31" ToolTip="Save Library">
+					<!-- bind to a command -->
+					<Image Source="UIImages/Icon_Save.png" Height="25" Width="25"></Image>
+				</Button>
 
-        <!-- Character Display -->
-        <Grid>
-            <!-- Grid Layout -->
-            <Grid.RowDefinitions>
-                <RowDefinition  />
-            </Grid.RowDefinitions>
+				<Menu Height="31" Width="31" ToolTip="New Character">
+					<MenuItem Height="31" Width="31">
+						<MenuItem.Icon>
+							<Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
+						</MenuItem.Icon>
+						<MenuItem Header="Lvl 0" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>0</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 1" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 2" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>900</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 3" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>1500</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 4" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>3300</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 5" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>7100</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 6" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>14600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 7" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>23600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 8" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>34600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 9" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>48600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 10" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>64600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 11" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>85600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 12" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>100600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 13" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>120600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 14" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>140600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 15" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>165600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 16" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>195600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 17" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>225600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 18" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>265600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 19" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>305600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+						<MenuItem Header="Lvl 20" Command="{Binding Path=AddCharacterCommand}">
+							<MenuItem.CommandParameter>
+								<dataTypes:Int32>355600</dataTypes:Int32>
+							</MenuItem.CommandParameter>
+						</MenuItem>
+					</MenuItem>
+				</Menu>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition  />
-            </Grid.ColumnDefinitions>
+			</ToolBar>
+		</ToolBarTray>
 
-            <!-- Wrap Panel Bound to Character Library -->
-            <ScrollViewer Grid.Row="1">
-                <ItemsControl Grid.Row="2" ItemsSource="{Binding Path=CharacterLibrary}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel IsItemsHost="True" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+		<!-- Character Display -->
+		<Grid>
+			<!-- Grid Layout -->
+			<Grid.RowDefinitions>
+				<RowDefinition  />
+			</Grid.RowDefinitions>
 
-                    <!-- Custom Display for each instance of the Person Data Type -->
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type model:Character}">
-                            <Grid>
-                                <Border BorderBrush="AntiqueWhite" Background="AntiqueWhite" Height="30" Width="100" CornerRadius="7" >
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition  />
+			</Grid.ColumnDefinitions>
 
-                                        <ContentPresenter Grid.Column="0" Content="{Binding Path=Name}" VerticalAlignment="Center"></ContentPresenter>
-                                        <ContentPresenter Grid.Column="1" Content="{Binding Path=Description}" VerticalAlignment="Center" HorizontalAlignment="Right"></ContentPresenter>
-                                    </Grid>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+			<!-- Wrap Panel Bound to Character Library -->
+			<ScrollViewer Grid.Row="1">
+				<ItemsControl Grid.Row="2" ItemsSource="{Binding Path=CharacterLibrary}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel IsItemsHost="True" Margin="12"/>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
 
-        </Grid>
-    </DockPanel>
+					<!-- Custom Display for each instance of the Person Data Type -->
+					<ItemsControl.ItemTemplate>
+						<DataTemplate DataType="{x:Type model:Character}">
+							<Grid Margin="10">
+								<Border Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="180" Width="227" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"></ColumnDefinition>
+										</Grid.ColumnDefinitions>
+
+										<Grid.RowDefinitions>
+											<RowDefinition Height="60"></RowDefinition>
+											<RowDefinition Height="120"></RowDefinition>
+										</Grid.RowDefinitions>
+
+										<!-- Name Button -->
+										<Border Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="150" CornerRadius="7" Margin="0,0,50,0">
+											<TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" Height="22" Width="140" FontSize="15" TextTrimming="CharacterEllipsis" Opacity="0.8"></TextBlock>
+										</Border>
+
+										<!-- Edit Button -->
+										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="160,0,0,0">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/edit_modern.png" Height="20" Width="20"/>
+										</Button>
+
+										<!-- Description Button -->
+										<Border Grid.Row="1" Background="White" BorderBrush="White" Height="100" Width="200" CornerRadius="7">
+											<TextBlock Text="{Binding Path=Description}" VerticalAlignment="Center" TextWrapping="Wrap" Height="90" Width="190" TextTrimming="WordEllipsis" Opacity="0.8"></TextBlock>
+										</Border>
+									</Grid>
+								</Border>
+							</Grid>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+
+		</Grid>
+	</DockPanel>
 
 
 </Window>
