@@ -4,8 +4,6 @@ using System.Windows.Input;
 using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using EdArcCharacterCreatorXPCalc.Model;
-using System.Windows;
-using System;
 
 namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
@@ -16,18 +14,17 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         public ICommand AddCharacterCommand => addCharacterCommand;
 
         private void OnAddCharacter(object commandParameter) {
-            /*command actions*/
             Character newCharacter = new Character();
-            newCharacter.Name = "";
-            newCharacter.Description = "";
+            newCharacter.Name = "Name...";
+            newCharacter.Description = "Description...";
             newCharacter.Health = 0;
             newCharacter.Mana = 0;
             newCharacter.TotalXP = (int)commandParameter;
 
-            if (characterLibrary == null) {
-                characterLibrary = new ObservableCollection<Character> { };
+            if (CharacterLibrary == null) {
+                CharacterLibrary = new ObservableCollection<Character> { };
             }
-            characterLibrary.Add(newCharacter);
+            CharacterLibrary.Add(newCharacter);
             
             //addCharacterCommand.InvokeCanExecuteChanged();
         }
