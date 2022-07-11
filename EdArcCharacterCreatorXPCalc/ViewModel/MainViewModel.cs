@@ -5,24 +5,34 @@ using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using EdArcCharacterCreatorXPCalc.Model;
 using System.Windows;
+using System;
 
 namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
     internal class MainViewModel : ViewModelBase {
 
         #region Application Commands
-        private readonly DelegateCommand displayAddCharacter;
-        public ICommand DisplayAddCharacter => displayAddCharacter;
+        private readonly DelegateCommand addCharacterCommand;
+        public ICommand AddCharacterCommand => addCharacterCommand;
 
-
-        private void OnDisplayAddCharacter(object commandParameter) {
+        private void OnAddCharacter(object commandParameter) {
             /*command actions*/
+            Character newCharacter = new Character();
+            newCharacter.Name = "";
+            newCharacter.Description = "";
+            newCharacter.Health = 0;
+            newCharacter.Mana = 0;
+            newCharacter.TotalXP = (int)commandParameter;
 
-
-            //displayAddCharacter.InvokeCanExecuteChanged();
+            if (characterLibrary == null) {
+                characterLibrary = new ObservableCollection<Character> { };
+            }
+            characterLibrary.Add(newCharacter);
+            
+            //addCharacterCommand.InvokeCanExecuteChanged();
         }
 
-        private bool CanDisplayAddCharacter(object commandParameter) {
+        private bool CanAddCharacter(object commandParameter) {
             /*return conditions in which OnCommand should & shouldn't execute*/
             return true; // this is a placeholder
         }
@@ -46,8 +56,11 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         public MainViewModel() {
 
             #region Commands
-            displayAddCharacter = new DelegateCommand(OnDisplayAddCharacter, CanDisplayAddCharacter);
+            addCharacterCommand = new DelegateCommand(OnAddCharacter, CanAddCharacter);
             #endregion
+
+            /*  TEST METHOD - Comment Out When Not in Use  */
+            //WriteXML(characterLibrary);
 
             #region Read XML Data
             DataContractSerializer reader = new DataContractSerializer(typeof(ObservableCollection<Character>));
@@ -60,6 +73,44 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
                 file.Close();
             }
             #endregion
+        }
+
+
+        /*  TEST METHOD - Comment Out When Not in Use  */
+        public static void WriteXML(ObservableCollection<Character> characterLibrary) {
+
+            Character character1 = new Character();
+            character1.Name = "Herald Ghan";
+            character1.Description = "";
+            character1.Health = 0;
+            character1.Mana = 0;
+
+            character1.Abilities = new ObservableCollection<AbilitiesFeats> { };
+            character1.Feats = new ObservableCollection<AbilitiesFeats> { };
+            character1.InstrumentsGames = new ObservableCollection<Proficiency> { };
+            character1.Languges = new ObservableCollection<Language> { };
+            character1.Proficiciencies = new ObservableCollection<Proficiency> { };
+
+            Character character2 = new Character();
+            character2.Name = "Bob Johnson";
+            character2.Description = "There is no description here...";
+            character2.Health = 0;
+            character2.Mana = 0;
+
+            characterLibrary = new ObservableCollection<Character> { character1, character2 };
+
+            // Create a serializer for the data type Book
+            DataContractSerializer writer = new DataContractSerializer(typeof(ObservableCollection<Character>));
+
+            // create the path in which the data will be stored
+            var path = "C:/ImagiSpark/applications/XPCalculator/CharacterLibrary.xml";
+
+            // use the path to create the file & a pointer to the file
+            XmlWriter file = XmlWriter.Create(path);
+
+            // write the book's data to the file & close the file pointer
+            writer.WriteObject(file, characterLibrary);
+            file.Close();
         }
         #endregion
     }
