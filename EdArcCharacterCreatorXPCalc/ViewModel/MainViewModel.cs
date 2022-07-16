@@ -37,7 +37,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         }
 
         private void OnDeleteCharacter(object commandParameter) {
-            
+            CharacterLibrary.Remove((Character)commandParameter);
         }
 
         private bool CanDeleteCharacter(object commandParameter) {

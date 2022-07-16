@@ -10,10 +10,12 @@
         mc:Ignorable="d"
         Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="400">
 
+	<!-- Resources -->
 	<Window.Resources>
 		<local:BindingProxy x:Key="proxy" Data="{Binding}"/>
 	</Window.Resources>
 
+	
 	<!-- Window UI -->
 	<DockPanel>
 
@@ -194,7 +196,7 @@
 										</Button>
 
 										<!-- Delete Button -->
-										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="310,0,0,0" ToolTip="Delete Character" Command="{Binding Source={StaticResource proxy}, Path=Data.DeleteCharacterCommand}"> <!-- RelativeSource/AncestorType allows us to walk up to the parent of the current data context. read up on how this works -->
+										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="310,0,0,0" ToolTip="Delete Character" Command="{Binding Source={StaticResource proxy}, Path=Data.DeleteCharacterCommand}" CommandParameter="{Binding}">
 											<Button.Resources>
 												<Style TargetType="Border">
 													<Setter Property="CornerRadius" Value="7"/>
