@@ -160,8 +160,8 @@
 					<!-- Custom Display for each instance of the Person Data Type -->
 					<ItemsControl.ItemTemplate>
 						<DataTemplate DataType="{x:Type model:Character}">
-							<Grid Margin="10">
-								<Border Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="180" Width="227" CornerRadius="7">
+							<Grid Margin="16,10,16,10">
+								<Border Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="180" Width="380" CornerRadius="7">
 									<Grid>
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="*"></ColumnDefinition>
@@ -173,12 +173,12 @@
 										</Grid.RowDefinitions>
 
 										<!-- Name Button -->
-										<Border Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="150" CornerRadius="7" Margin="0,0,50,0">
-											<TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" Height="22" Width="140" FontSize="15" TextTrimming="CharacterEllipsis" Opacity="0.8"></TextBlock>
+										<Border Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="200" CornerRadius="7" Margin="0,0,150,0">
+											<TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" Height="22" Width="190" FontSize="15" TextTrimming="CharacterEllipsis" Opacity="0.7"></TextBlock>
 										</Border>
 
 										<!-- Edit Button -->
-										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="160,0,0,0">
+										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="210,0,0,0" ToolTip="Edit Character">
 											<Button.Resources>
 												<Style TargetType="Border">
 													<Setter Property="CornerRadius" Value="7"/>
@@ -188,9 +188,20 @@
 											<Image Source="UIImages/edit_modern.png" Height="20" Width="20"/>
 										</Button>
 
+										<!-- Delete Button -->
+										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="310,0,0,0" ToolTip="Delete Character" Command="{Binding DeleteCharacterCommand, RelativeSource={RelativeSource AncestorType=viewmodel:MainViewModel}}"> <!-- RelativeSource/AncestorType allows us to walk up to the parent of the current data context. read up on how this works -->
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/delete.png" Height="20" Width="20"/>
+										</Button>
+
 										<!-- Description Button -->
-										<Border Grid.Row="1" Background="White" BorderBrush="White" Height="100" Width="200" CornerRadius="7">
-											<TextBlock Text="{Binding Path=Description}" VerticalAlignment="Center" TextWrapping="Wrap" Height="90" Width="190" TextTrimming="WordEllipsis" Opacity="0.8"></TextBlock>
+										<Border Grid.Row="1" Background="White" BorderBrush="White" Height="100" Width="352" CornerRadius="7">
+											<TextBlock Text="{Binding Path=Description}" VerticalAlignment="Center" TextWrapping="Wrap" Height="90" Width="342" TextTrimming="WordEllipsis" Opacity="0.8"></TextBlock>
 										</Border>
 									</Grid>
 								</Border>

@@ -11,7 +11,9 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
         #region Application Commands
         private readonly DelegateCommand addCharacterCommand;
+        private readonly DelegateCommand deleteCharacterCommand;
         public ICommand AddCharacterCommand => addCharacterCommand;
+        public ICommand DeleteCharacterCommand => deleteCharacterCommand;
 
         private void OnAddCharacter(object commandParameter) {
             Character newCharacter = new Character();
@@ -30,6 +32,15 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         }
 
         private bool CanAddCharacter(object commandParameter) {
+            /*return conditions in which OnCommand should & shouldn't execute*/
+            return true; // this is a placeholder
+        }
+
+        private void OnDeleteCharacter(object commandParameter) {
+            
+        }
+
+        private bool CanDeleteCharacter(object commandParameter) {
             /*return conditions in which OnCommand should & shouldn't execute*/
             return true; // this is a placeholder
         }
@@ -54,6 +65,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
             #region Commands
             addCharacterCommand = new DelegateCommand(OnAddCharacter, CanAddCharacter);
+            deleteCharacterCommand = new DelegateCommand(OnDeleteCharacter, CanDeleteCharacter);
             #endregion
 
             /*  TEST METHOD - Comment Out When Not in Use  */
