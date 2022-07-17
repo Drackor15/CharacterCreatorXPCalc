@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using EdArcCharacterCreatorXPCalc.Model;
 
+using EdArcCharacterCreatorXPCalc.View;
+
 namespace EdArcCharacterCreatorXPCalc.ViewModel {
 
     internal class MainViewModel : ViewModelBase {
@@ -12,8 +14,12 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
         #region Application Commands
         private readonly DelegateCommand addCharacterCommand;
         private readonly DelegateCommand deleteCharacterCommand;
+        private readonly DelegateCommand editCharacterCommand;
+        private readonly DelegateCommand saveLibraryCommand;
         public ICommand AddCharacterCommand => addCharacterCommand;
         public ICommand DeleteCharacterCommand => deleteCharacterCommand;
+        public ICommand EditCharacterCommand => editCharacterCommand;
+        public ICommand SaveLibraryCommand => saveLibraryCommand;
 
         private void OnAddCharacter(object commandParameter) {
             Character newCharacter = new Character();
@@ -44,6 +50,37 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
             /*return conditions in which OnCommand should & shouldn't execute*/
             return true; // this is a placeholder
         }
+
+        private void OnEditCharacter(object commandParameter) {
+            EditorWindow editorWindow = new EditorWindow(commandParameter);
+            editorWindow.Show();
+            //EditorViewModel editorViewModel = new EditorViewModel((Character)commandParameter);
+        }
+
+        private bool CanEditCharacter(object commandParameter) {
+            /*return conditions in which OnCommand should & shouldn't execute*/
+            return true; // this is a placeholder
+        }
+
+        private void OnSaveLibrary(object commandParameter) {
+            // Create serializer for Character data type
+            DataContractSerializer writer = new DataContractSerializer(typeof(ObservableCollection<Character>));
+
+            // Path in which data will be stored
+            var path = "C:/ImagiSpark/applications/XPCalculator/CharacterLibrary.xml";
+
+            // Use path to create the file & a pointer to the file
+            XmlWriter file = XmlWriter.Create(path);
+
+            // Write Character Library to file & close the file pointer
+            writer.WriteObject(file, characterLibrary);
+            file.Close();
+        }
+
+        private bool CanSaveLibrary(object commandParameter) {
+            /*return conditions in which OnCommand should & shouldn't execute*/
+            return true; // this is a placeholder
+        }
         #endregion
 
         #region Application Data
@@ -66,10 +103,9 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
             #region Commands
             addCharacterCommand = new DelegateCommand(OnAddCharacter, CanAddCharacter);
             deleteCharacterCommand = new DelegateCommand(OnDeleteCharacter, CanDeleteCharacter);
+            editCharacterCommand = new DelegateCommand(OnEditCharacter, CanEditCharacter);
+            saveLibraryCommand = new DelegateCommand(OnSaveLibrary, CanSaveLibrary);
             #endregion
-
-            /*  TEST METHOD - Comment Out When Not in Use  */
-            //WriteXML(characterLibrary);
 
             #region Read XML Data
             DataContractSerializer reader = new DataContractSerializer(typeof(ObservableCollection<Character>));
@@ -82,44 +118,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
                 file.Close();
             }
             #endregion
-        }
-
-
-        /*  TEST METHOD - Comment Out When Not in Use  */
-        public static void WriteXML(ObservableCollection<Character> characterLibrary) {
-
-            Character character1 = new Character();
-            character1.Name = "Herald Ghan";
-            character1.Description = "";
-            character1.Health = 0;
-            character1.Mana = 0;
-
-            character1.Abilities = new ObservableCollection<AbilitiesFeats> { };
-            character1.Feats = new ObservableCollection<AbilitiesFeats> { };
-            character1.InstrumentsGames = new ObservableCollection<Proficiency> { };
-            character1.Languges = new ObservableCollection<Language> { };
-            character1.Proficiciencies = new ObservableCollection<Proficiency> { };
-
-            Character character2 = new Character();
-            character2.Name = "Bob Johnson";
-            character2.Description = "There is no description here...";
-            character2.Health = 0;
-            character2.Mana = 0;
-
-            characterLibrary = new ObservableCollection<Character> { character1, character2 };
-
-            // Create a serializer for the data type Book
-            DataContractSerializer writer = new DataContractSerializer(typeof(ObservableCollection<Character>));
-
-            // create the path in which the data will be stored
-            var path = "C:/ImagiSpark/applications/XPCalculator/CharacterLibrary.xml";
-
-            // use the path to create the file & a pointer to the file
-            XmlWriter file = XmlWriter.Create(path);
-
-            // write the book's data to the file & close the file pointer
-            writer.WriteObject(file, characterLibrary);
-            file.Close();
         }
         #endregion
     }
