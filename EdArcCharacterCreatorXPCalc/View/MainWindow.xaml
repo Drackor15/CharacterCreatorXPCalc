@@ -8,7 +8,7 @@
         xmlns:viewmodel="clr-namespace:EdArcCharacterCreatorXPCalc.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         xmlns:dataTypes="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="400">
+        Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="470" WindowState="Maximized">
 
 	<!-- Resources -->
 	<Window.Resources>
@@ -23,11 +23,12 @@
 		<ToolBarTray Background="WhiteSmoke" DockPanel.Dock="Top">
 			<ToolBar Band="1" BandIndex="1" Background="WhiteSmoke">
 
-				<Button Height="31" Width="31" ToolTip="Save Library">
-					<!-- bind to a command -->
+				<!-- Save Button -->
+				<Button Height="31" Width="31" ToolTip="Save Library" Command="{Binding SaveLibraryCommand}">
 					<Image Source="UIImages/Icon_Save.png" Height="25" Width="25"></Image>
 				</Button>
 
+				<!-- New Character Button -->
 				<Menu Height="31" Width="31" ToolTip="New Character">
 					<MenuItem Height="31" Width="31">
 						<MenuItem.Icon>
@@ -179,13 +180,13 @@
 											<RowDefinition Height="120"></RowDefinition>
 										</Grid.RowDefinitions>
 
-										<!-- Name Button -->
+										<!-- Name Display -->
 										<Border Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="200" CornerRadius="7" Margin="0,0,150,0">
 											<TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" Height="22" Width="190" FontSize="15" TextTrimming="CharacterEllipsis" Opacity="0.7"></TextBlock>
 										</Border>
 
 										<!-- Edit Button -->
-										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="210,0,0,0" ToolTip="Edit Character">
+										<Button Grid.Row="0" Background="White" BorderBrush="White" Height="40" Width="40" Margin="210,0,0,0" ToolTip="Edit Character" Command="{Binding Source={StaticResource proxy}, Path=Data.EditCharacterCommand}" CommandParameter="{Binding}">
 											<Button.Resources>
 												<Style TargetType="Border">
 													<Setter Property="CornerRadius" Value="7"/>
@@ -206,7 +207,7 @@
 											<Image Source="UIImages/delete.png" Height="20" Width="20"/>
 										</Button>
 
-										<!-- Description Button -->
+										<!-- Description Display -->
 										<Border Grid.Row="1" Background="White" BorderBrush="White" Height="100" Width="352" CornerRadius="7">
 											<TextBlock Text="{Binding Path=Description}" VerticalAlignment="Center" TextWrapping="Wrap" Height="90" Width="342" TextTrimming="WordEllipsis" Opacity="0.8"></TextBlock>
 										</Border>

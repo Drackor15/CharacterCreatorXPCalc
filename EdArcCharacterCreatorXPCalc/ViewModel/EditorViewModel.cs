@@ -10,7 +10,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		private Character characterToEdit;
 
 		public EditorViewModel(Character CharacterToEdit) {
-			throw new NotImplementedException();
+			characterToEdit = CharacterToEdit;
 		}
 	}
 
