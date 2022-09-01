@@ -147,18 +147,10 @@
 
 		<!-- Character Display -->
 		<Grid>
-			<!-- Grid Layout -->
-			<Grid.RowDefinitions>
-				<RowDefinition  />
-			</Grid.RowDefinitions>
-
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition  />
-			</Grid.ColumnDefinitions>
 
 			<!-- Wrap Panel Bound to Character Library -->
-			<ScrollViewer Grid.Row="1">
-				<ItemsControl Grid.Row="2" ItemsSource="{Binding Path=CharacterLibrary}">
+			<ScrollViewer>
+				<ItemsControl ItemsSource="{Binding Path=CharacterLibrary}">
 					<ItemsControl.ItemsPanel>
 						<ItemsPanelTemplate>
 							<WrapPanel IsItemsHost="True" Margin="12"/>
