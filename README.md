@@ -7,7 +7,7 @@ This project is still unfinished & I continue to work on it in my downtime.
 
 ###### Current & Planned Features:
 
-To get an idea of what currently exists in the program at a glance check out my [Functionality Brief] ().
+To get an idea of what currently exists in the program at a glance check out my [Functionality Brief](https://docs.google.com/document/d/1JX0nmmHTqmbXT6nfXpLl9sawA8GfSnXW/edit?usp=sharing&ouid=108169460883691597880&rtpof=true&sd=true).
 This document was made during the planning stages of the project & should give you a good idea of what exists
 & what has yet to be implemented. Within the document you'll notice that items of interest are highlighted.
 Objects highlighted in Green are finished, Yellow are in progress, & blank ones are barely started.
