@@ -8,21 +8,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
     internal class Character : INamedCharacterTrait, IDescribableCharacterTrait {
 
         #region Constructor
-        // instances & characterID may be unecessary
-        [DataMember]
-        private static int instances = 0;
-
-        [DataMember]
-        private int characterID;
-
-        public int CharacterID {
-            get { return characterID; }
-        }
-
         public Character() {
-            characterID = instances;
-            instances++;
-
             strength = new AbilityScore();
             dexterity = new AbilityScore();
             constitution = new AbilityScore();
@@ -54,6 +40,9 @@ namespace EdArcCharacterCreatorXPCalc.Model {
         [DataMember]
         private int mana;
 
+
+        [DataMember]
+        private int abilityScorePoints;
 
         [DataMember]
         private AbilityScore strength;
@@ -127,6 +116,11 @@ namespace EdArcCharacterCreatorXPCalc.Model {
         #endregion
 
         #region Ability Scores
+        public int AbilityScorePoints {
+            get { return abilityScorePoints; }
+            set { abilityScorePoints = value; }
+        }
+
         public AbilityScore Strength {
             get { return strength; }
             set { strength = value; }

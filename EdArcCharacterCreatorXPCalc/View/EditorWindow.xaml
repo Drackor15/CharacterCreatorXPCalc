@@ -5,8 +5,298 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EdArcCharacterCreatorXPCalc.View"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="{Binding CharacterToEdit.Name, StringFormat=' {0} - Character Editor'}" Height="450" Width="800" MinHeight="300" MinWidth="470" WindowState="Maximized">
+
+	<!-- Resources -->
+	<Window.Resources>
+		<local:BindingProxy x:Key="proxy" Data="{Binding}"/>
+	</Window.Resources>
+
+	<Grid>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!-- Ribbon -->
+		<Border Grid.RowSpan="1" Background="White">
+			<Grid>
+				<!--1x16-->
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					
+					<ColumnDefinition Width="*"/>
+
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+
+					<ColumnDefinition Width="*"/>
+					
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<!-- Name Display -->
+				<Border Grid.Column="1" Grid.ColumnSpan="4" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="60" CornerRadius="7">
+					<Grid>
+						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
+							<Viewbox>
+								<TextBox MinWidth="50" Text="{Binding Path=CharacterToEdit.Name}" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+							</Viewbox>
+						</Border>
+					</Grid>
+				</Border>
+
+				<!-- Total XP -->
+				<Border Grid.Column="7" Grid.ColumnSpan="2" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="60" CornerRadius="7" ToolTip="Total XP">
+					<Grid>
+						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
+							<Viewbox>
+								<TextBox Text="{Binding Path=CharacterToEdit.TotalXP}" PreviewTextInput="MaskNumericInput" DataObject.Pasting="MaskNumericPaste" TextChanged="ReplaceNullStringText" TextAlignment="Center" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+							</Viewbox>
+						</Border>
+					</Grid>
+				</Border>
+
+				<!-- XP Spent -->
+				<Border Grid.Column="10" Grid.ColumnSpan="2" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="60" CornerRadius="7" ToolTip="XP Spent">
+					<Grid>
+						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
+							<Viewbox>
+								<TextBlock Text="{Binding Path=CharacterToEdit.SpentXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
+							</Viewbox>
+						</Border>
+					</Grid>
+				</Border>
+
+				<!-- Remaining XP -->
+				<Border Grid.Column="13" Grid.ColumnSpan="2" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="60" CornerRadius="7" ToolTip="Remaining XP">
+					<Grid>
+						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
+							<Viewbox>
+								<TextBlock Text="{Binding Path=CharacterToEdit.RemainingXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
+							</Viewbox>
+						</Border>
+					</Grid>
+				</Border>
+			</Grid>
+		</Border>
+
+		<!-- Body -->
+		<Grid Grid.Row="1">
+			<ScrollViewer>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="2*" MinHeight="1000"/>
+						<RowDefinition Height="*" MinHeight="200"/>
+					</Grid.RowDefinitions>
+					
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="190"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Ability Scores -->
+					<Grid Margin="20,20,20,20">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="20"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						
+						<!-- Point Display -->
+						<Border Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="150" Height="70" CornerRadius="7">
+							<Grid Margin="2,10,2,10">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="2*"/>
+								</Grid.ColumnDefinitions>
+
+								<!-- Sub Button -->
+								<Button Background="White" BorderBrush="White" Width="25" Height="40" ToolTip="Ability Score Decrease" Command="{Binding SubAbilityScorePointsCommand}" CommandParameter="{Binding ElementName=PointDisplay}">
+									<Button.Resources>
+										<Style TargetType="Border">
+											<Setter Property="CornerRadius" Value="7"/>
+										</Style>
+									</Button.Resources>
+
+									<Viewbox>
+										<Image Source="UIImages/minus.png" Height="20" Width="20"/>
+									</Viewbox>
+								</Button>
+
+								<!-- Point Display -->
+								<Border Grid.Column="1" Background="White" BorderBrush="White" Width="60" Height="45" CornerRadius="7">
+									<Viewbox>
+										<TextBlock Text="{Binding Path=CharacterToEdit.AbilityScorePoints}"/>
+									</Viewbox>
+								</Border>
+
+								<!-- Add Button -->
+								<Button Grid.Column="2" Background="White" BorderBrush="White" Width="25" Height="40" ToolTip="Ability Score Increase" Command="{Binding AddAbilityScorePointsCommand}">
+									<Button.Resources>
+										<Style TargetType="Border">
+											<Setter Property="CornerRadius" Value="7"/>
+										</Style>
+									</Button.Resources>
+
+									<Viewbox>
+										<Image Source="UIImages/add.png" Height="20" Width="20"/>
+									</Viewbox>
+								</Button>
+
+							</Grid>
+						</Border>
+						
+
+						<!-- Strength -->
+						<Border Grid.Row="2" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
+
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Strength</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+										
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEdit.Strength.BaseScore}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEdit.Strength.Modifier, StringFormat='+0;-#'}"></TextBlock>	<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+								
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+										
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+								
+							</Grid>
+						</Border>
+
+						<!-- Dexterity -->
+						<Border Grid.Row="4" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+
+						</Border>
+
+						<!-- Constitution -->
+						<Border Grid.Row="6" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+
+						</Border>
+
+						<!-- Intelligence -->
+						<Border Grid.Row="8" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+
+						</Border>
+
+						<!-- Wisdom -->
+						<Border Grid.Row="10" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+
+						</Border>
+
+						<!-- Charisma -->
+						<Border Grid.Row="12" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+
+						</Border>
+					</Grid>
+					
+					<!-- Health, Mana, & Proficiencies -->
+					<Grid Grid.Column="1">
+						<TextBlock>right grid</TextBlock>
+					</Grid>
+
+					<!-- Description Display -->
+					<Border Grid.Row="1" Grid.ColumnSpan="2" Background="WhiteSmoke" BorderBrush="WhiteSmoke" CornerRadius="7" Margin="20,10,20,20">
+						<Grid>
+							<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="20,20,20,20">
+								<Grid>
+									<TextBox Text="{Binding Path=CharacterToEdit.Description}" FontSize="16" TextWrapping="Wrap" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+								</Grid>
+							</Border>
+						</Grid>
+					</Border>
+				</Grid>
+			</ScrollViewer>
+		</Grid>
+	</Grid>
 </Window>
