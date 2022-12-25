@@ -22,6 +22,32 @@ namespace EdArcCharacterCreatorXPCalc.Model {
             instrumentsGames = new ObservableCollection<Proficiency>();
             languages = new ObservableCollection<Language>();
         }
+
+        public Character(Character character) {
+            name = character.name;
+            description = character.description;
+
+            health = character.health;
+            mana = character.mana;
+
+            abilityScorePoints = character.abilityScorePoints;
+            strength = character.strength;
+            dexterity = character.dexterity;
+            constitution = character.constitution;
+            intelligence = character.intelligence;
+            wisdom = character.wisdom;
+            charisma = character.charisma;
+
+            abilities = character.abilities;
+            feats = character.feats;
+            proficiencies = character.proficiencies;
+            instrumentsGames = character.instrumentsGames;
+            languages = character.languages;
+
+            totalXP = character.totalXP;
+            spentXP = character.spentXP;
+            remainingXP = character.remainingXP;
+        }
         #endregion
 
         #region Character Trait Data (Fields & Properties)

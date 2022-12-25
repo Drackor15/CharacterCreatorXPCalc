@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EdArcCharacterCreatorXPCalc.View"
         mc:Ignorable="d"
-        Title="{Binding CharacterToEdit.Name, StringFormat=' {0} - Character Editor'}" Height="450" Width="800" MinHeight="300" MinWidth="470" WindowState="Maximized">
+		xmlns:viewmodel="clr-namespace:EdArcCharacterCreatorXPCalc.ViewModel"
+		d:DataContext="{d:DesignInstance Type=viewmodel:EditorViewModel}"
+        Title="{Binding CharacterToEditName, StringFormat=' {0} - Character Editor'}" Height="450" Width="800" MinHeight="300" MinWidth="470" WindowState="Maximized">
 
 	<!-- Resources -->
 	<Window.Resources>
@@ -55,7 +57,7 @@
 					<Grid>
 						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
 							<Viewbox>
-								<TextBox MinWidth="50" Text="{Binding Path=CharacterToEdit.Name}" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+								<TextBox MinWidth="50" Text="{Binding CharacterToEditName}" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
 							</Viewbox>
 						</Border>
 					</Grid>
@@ -134,46 +136,24 @@
 						</Grid.ColumnDefinitions>
 						
 						<!-- Point Display -->
-						<Border Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="150" Height="70" CornerRadius="7">
-							<Grid Margin="2,10,2,10">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="2*"/>
-									<ColumnDefinition Width="3*"/>
-									<ColumnDefinition Width="2*"/>
-								</Grid.ColumnDefinitions>
+						<Border Grid.Row="0" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="80" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
 
-								<!-- Sub Button -->
-								<Button Background="White" BorderBrush="White" Width="25" Height="40" ToolTip="Ability Score Decrease" Command="{Binding SubAbilityScorePointsCommand}" CommandParameter="{Binding ElementName=PointDisplay}">
-									<Button.Resources>
-										<Style TargetType="Border">
-											<Setter Property="CornerRadius" Value="7"/>
-										</Style>
-									</Button.Resources>
+								<!-- Title -->
+								<Viewbox>
+									<TextBlock Text="Ability Score Points"/>
+								</Viewbox>
 
+									<!-- Point Display -->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" Width="auto" Height="auto" CornerRadius="7">
 									<Viewbox>
-										<Image Source="UIImages/minus.png" Height="20" Width="20"/>
-									</Viewbox>
-								</Button>
-
-								<!-- Point Display -->
-								<Border Grid.Column="1" Background="White" BorderBrush="White" Width="60" Height="45" CornerRadius="7">
-									<Viewbox>
-										<TextBlock Text="{Binding Path=CharacterToEdit.AbilityScorePoints}"/>
+										<TextBlock Text="{Binding CharacterToEditAbilityScorePoints}"/>
 									</Viewbox>
 								</Border>
-
-								<!-- Add Button -->
-								<Button Grid.Column="2" Background="White" BorderBrush="White" Width="25" Height="40" ToolTip="Ability Score Increase" Command="{Binding AddAbilityScorePointsCommand}">
-									<Button.Resources>
-										<Style TargetType="Border">
-											<Setter Property="CornerRadius" Value="7"/>
-										</Style>
-									</Button.Resources>
-
-									<Viewbox>
-										<Image Source="UIImages/add.png" Height="20" Width="20"/>
-									</Viewbox>
-								</Button>
 
 							</Grid>
 						</Border>
@@ -209,12 +189,12 @@
 										
 										<!--Score-->
 										<Viewbox>
-											<TextBlock Text="{Binding CharacterToEdit.Strength.BaseScore}"></TextBlock>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[0]}"></TextBlock>
 										</Viewbox>
 
 										<!--Modifier 0x1-->
 										<Viewbox Grid.Column="1">
-											<TextBlock Text="{Binding CharacterToEdit.Strength.Modifier, StringFormat='+0;-#'}"></TextBlock>	<!--Make sure the string formatting works properly here-->
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[0], StringFormat='+0;-#'}"></TextBlock>	<!--Make sure the string formatting works properly here-->
 										</Viewbox>
 									</Grid>
 								</Border>
@@ -228,7 +208,7 @@
 										</Grid.RowDefinitions>
 
 										<!--Increase-->
-										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0">
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="0">
 											<Button.Resources>
 												<Style TargetType="Border">
 													<Setter Property="CornerRadius" Value="7"/>
@@ -239,7 +219,7 @@
 										</Button>
 										
 										<!--Decrease-->
-										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0">
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="0">
 											<Button.Resources>
 												<Style TargetType="Border">
 													<Setter Property="CornerRadius" Value="7"/>

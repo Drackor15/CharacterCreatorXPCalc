@@ -9,6 +9,13 @@ namespace EdArcCharacterCreatorXPCalc.Model {
     [DataContract]
     internal class AbilityScore : IBaseScore, IProficiecyModifier {
 
+        /// <summary>
+        /// Default BaseScore to 0
+        /// </summary>
+        internal AbilityScore() {
+            BaseScore = 0;
+        }
+
         #region Fields
         [DataMember]
         private int baseScore;
