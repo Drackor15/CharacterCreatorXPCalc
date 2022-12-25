@@ -236,27 +236,382 @@
 
 						<!-- Dexterity -->
 						<Border Grid.Row="4" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
 
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Dexterity</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[1]}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[1], StringFormat='+0;-#'}"></TextBlock>
+											<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="1">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="1">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+
+							</Grid>
 						</Border>
 
 						<!-- Constitution -->
 						<Border Grid.Row="6" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
 
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Constitution</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[2]}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[2], StringFormat='+0;-#'}"></TextBlock>
+											<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="2">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="2">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+
+							</Grid>
 						</Border>
 
 						<!-- Intelligence -->
 						<Border Grid.Row="8" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
 
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Intelligence</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[3]}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[3], StringFormat='+0;-#'}"></TextBlock>
+											<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="3">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="3">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+
+							</Grid>
 						</Border>
 
 						<!-- Wisdom -->
 						<Border Grid.Row="10" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
 
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Wisdom</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[4]}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[4], StringFormat='+0;-#'}"></TextBlock>
+											<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="4">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="4">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+
+							</Grid>
 						</Border>
 
 						<!-- Charisma -->
 						<Border Grid.Row="12" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="110" HorizontalAlignment="Left" CornerRadius="7">
+							<Grid Margin="8,0,8,8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="2*"/>
+								</Grid.RowDefinitions>
 
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Label 0x0-->
+								<Border Grid.ColumnSpan="2" Margin="0,0,0,5">
+									<Viewbox>
+										<TextBlock>Charisma</TextBlock>
+									</Viewbox>
+								</Border>
+
+								<!--Score 1x0-->
+								<Border Grid.Row="1" Background="White" BorderBrush="White" CornerRadius="7">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="2*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+
+										<!--Score-->
+										<Viewbox>
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreBaseScores[5]}"></TextBlock>
+										</Viewbox>
+
+										<!--Modifier 0x1-->
+										<Viewbox Grid.Column="1">
+											<TextBlock Text="{Binding CharacterToEditAbilityScoreModifiers[5], StringFormat='+0;-#'}"></TextBlock>
+											<!--Make sure the string formatting works properly here-->
+										</Viewbox>
+									</Grid>
+								</Border>
+
+								<!--Increase/Decrease Buttons 1x1-->
+								<Border Grid.Row="1" Grid.Column="1">
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="*"/>
+										</Grid.RowDefinitions>
+
+										<!--Increase-->
+										<Button Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding IncreaseAbilityScoreCommand}" CommandParameter="5">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_up_simple.png"/>
+										</Button>
+
+										<!--Decrease-->
+										<Button Grid.Row="1" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Height="20" Width="20" Margin="3,0,0,0" Command="{Binding DecreaseAbilityScoreCommand}" CommandParameter="5">
+											<Button.Resources>
+												<Style TargetType="Border">
+													<Setter Property="CornerRadius" Value="7"/>
+												</Style>
+											</Button.Resources>
+
+											<Image Source="UIImages/arrow_down_simple.png"/>
+										</Button>
+									</Grid>
+								</Border>
+
+							</Grid>
 						</Border>
 					</Grid>
 					
