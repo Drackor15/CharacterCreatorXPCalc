@@ -1,13 +1,13 @@
 ﻿
 namespace EdArcCharacterCreatorXPCalc.ModelInterfaces {
-    /*
+	/*
 	 * Used by Character Traits with base scores for modifiers
 	 */
-    public interface IBaseScore {
+	public interface IBaseScore {
 
-        int BaseScore {
-            get;
-            set;
-        }
-    }
+		int BaseScore {
+			get;
+			set;
+		}
+	}
 }

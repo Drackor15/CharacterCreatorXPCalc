@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 using EdArcCharacterCreatorXPCalc.ViewModel;
 
 namespace EdArcCharacterCreatorXPCalc.View {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            var mainViewModel = new MainViewModel();
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window {
+		public MainWindow() {
+			var mainViewModel = new MainViewModel();
 
-            DataContext = mainViewModel;
-            InitializeComponent();
-        }
-    }
+			DataContext = mainViewModel;
+			InitializeComponent();
+		}
+	}
 }

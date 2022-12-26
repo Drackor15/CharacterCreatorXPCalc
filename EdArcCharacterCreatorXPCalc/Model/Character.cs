@@ -4,238 +4,238 @@ using EdArcCharacterCreatorXPCalc.ModelInterfaces;
 
 namespace EdArcCharacterCreatorXPCalc.Model {
 
-    [DataContract]
-    internal class Character : INamedCharacterTrait, IDescribableCharacterTrait {
+	[DataContract]
+	internal class Character : INamedCharacterTrait, IDescribableCharacterTrait {
 
-        #region Constructor
-        public Character() {
-            strength = new AbilityScore();
-            dexterity = new AbilityScore();
-            constitution = new AbilityScore();
-            intelligence = new AbilityScore();
-            wisdom = new AbilityScore();
-            charisma = new AbilityScore();
+		#region Constructor
+		public Character() {
+			strength = new AbilityScore();
+			dexterity = new AbilityScore();
+			constitution = new AbilityScore();
+			intelligence = new AbilityScore();
+			wisdom = new AbilityScore();
+			charisma = new AbilityScore();
 
-            numOfAbilityScoreUpgrades = 0;
-            abilities = new ObservableCollection<AbilitiesFeats>();
-            feats = new ObservableCollection<AbilitiesFeats>();
-            proficiencies = new ObservableCollection<Proficiency>();
-            instrumentsGames = new ObservableCollection<Proficiency>();
-            languages = new ObservableCollection<Language>();
-        }
+			numOfAbilityScoreUpgrades = 0;
+			abilities = new ObservableCollection<AbilitiesFeats>();
+			feats = new ObservableCollection<AbilitiesFeats>();
+			proficiencies = new ObservableCollection<Proficiency>();
+			instrumentsGames = new ObservableCollection<Proficiency>();
+			languages = new ObservableCollection<Language>();
+		}
 
-        public Character(Character character) {
-            name = character.name;
-            description = character.description;
+		public Character(Character character) {
+			name = character.name;
+			description = character.description;
 
-            health = character.health;
-            mana = character.mana;
+			health = character.health;
+			mana = character.mana;
 
-            abilityScorePoints = character.abilityScorePoints;
-            strength = character.strength;
-            dexterity = character.dexterity;
-            constitution = character.constitution;
-            intelligence = character.intelligence;
-            wisdom = character.wisdom;
-            charisma = character.charisma;
+			abilityScorePoints = character.abilityScorePoints;
+			strength = character.strength;
+			dexterity = character.dexterity;
+			constitution = character.constitution;
+			intelligence = character.intelligence;
+			wisdom = character.wisdom;
+			charisma = character.charisma;
 
-            abilities = character.abilities;
-            feats = character.feats;
-            proficiencies = character.proficiencies;
-            instrumentsGames = character.instrumentsGames;
-            languages = character.languages;
+			abilities = character.abilities;
+			feats = character.feats;
+			proficiencies = character.proficiencies;
+			instrumentsGames = character.instrumentsGames;
+			languages = character.languages;
 
-            totalXP = character.totalXP;
-            spentXP = character.spentXP;
-            remainingXP = character.remainingXP;
-        }
-        #endregion
+			totalXP = character.totalXP;
+			spentXP = character.spentXP;
+			remainingXP = character.remainingXP;
+		}
+		#endregion
 
-        #region Character Trait Data (Fields & Properties)
+		#region Character Trait Data (Fields & Properties)
 
-        #region Fields
-        [DataMember]
-        private string name;
+		#region Fields
+		[DataMember]
+		private string name;
 
-        [DataMember]
-        private string description;
-
-
-        [DataMember]
-        private int health;
-
-        [DataMember]
-        private int mana;
+		[DataMember]
+		private string description;
 
 
-        [DataMember]
-        private int abilityScorePoints;
+		[DataMember]
+		private int health;
 
-        [DataMember]
-        private int numOfAbilityScoreUpgrades;
-
-        [DataMember]
-        private AbilityScore strength;
-
-        [DataMember]
-        private AbilityScore dexterity;
-
-        [DataMember]
-        private AbilityScore constitution;
-
-        [DataMember]
-        private AbilityScore intelligence;
-
-        [DataMember]
-        private AbilityScore wisdom;
-
-        [DataMember]
-        private AbilityScore charisma;
+		[DataMember]
+		private int mana;
 
 
-        [DataMember]
-        private ObservableCollection<AbilitiesFeats> abilities;
+		[DataMember]
+		private int abilityScorePoints;
 
-        [DataMember]
-        private ObservableCollection<AbilitiesFeats> feats;
+		[DataMember]
+		private int numOfAbilityScoreUpgrades;
+
+		[DataMember]
+		private AbilityScore strength;
+
+		[DataMember]
+		private AbilityScore dexterity;
+
+		[DataMember]
+		private AbilityScore constitution;
+
+		[DataMember]
+		private AbilityScore intelligence;
+
+		[DataMember]
+		private AbilityScore wisdom;
+
+		[DataMember]
+		private AbilityScore charisma;
 
 
-        [DataMember]
-        private ObservableCollection<Proficiency> proficiencies;
+		[DataMember]
+		private ObservableCollection<AbilitiesFeats> abilities;
 
-        [DataMember]
-        private ObservableCollection<Proficiency> instrumentsGames;
-
-        [DataMember]
-        private ObservableCollection<Language> languages;
+		[DataMember]
+		private ObservableCollection<AbilitiesFeats> feats;
 
 
-        [DataMember]
-        private int totalXP;
+		[DataMember]
+		private ObservableCollection<Proficiency> proficiencies;
 
-        [DataMember]
-        private int spentXP;
+		[DataMember]
+		private ObservableCollection<Proficiency> instrumentsGames;
 
-        [DataMember]
-        private int remainingXP;
+		[DataMember]
+		private ObservableCollection<Language> languages;
 
-        #endregion
 
-        #region Name & Description
-        public string Name {
-            get { return name; }
-            set { name = value; }
-        }
+		[DataMember]
+		private int totalXP;
 
-        public string Description {
-            get { return description; }
-            set { description = value; }
-        }
-        #endregion
+		[DataMember]
+		private int spentXP;
 
-        #region Health & Mana
-        public int Health {
-            get { return health; }
-            set { health = value; }
-        }
+		[DataMember]
+		private int remainingXP;
 
-        public int Mana {
-            get { return mana; }
-            set { mana = value; }
-        }
-        #endregion
+		#endregion
 
-        #region Ability Scores
-        public int AbilityScorePoints {
-            get { return abilityScorePoints; }
-            set { abilityScorePoints = value; }
-        }
+		#region Name & Description
+		public string Name {
+			get { return name; }
+			set { name = value; }
+		}
 
-        public int NumOfAbilityScoreUpgrades {
-            get { return numOfAbilityScoreUpgrades; }
-            set { numOfAbilityScoreUpgrades = value; }
-        }
+		public string Description {
+			get { return description; }
+			set { description = value; }
+		}
+		#endregion
 
-        public AbilityScore Strength {
-            get { return strength; }
-            set { strength = value; }
-        }
+		#region Health & Mana
+		public int Health {
+			get { return health; }
+			set { health = value; }
+		}
 
-        public AbilityScore Dexterity {
-            get { return dexterity; }
-            set { dexterity = value; }
-        }
+		public int Mana {
+			get { return mana; }
+			set { mana = value; }
+		}
+		#endregion
 
-        public AbilityScore Constitution {
-            get { return constitution; }
-            set { constitution = value; }
-        }
+		#region Ability Scores
+		public int AbilityScorePoints {
+			get { return abilityScorePoints; }
+			set { abilityScorePoints = value; }
+		}
 
-        public AbilityScore Intelligence {
-            get { return intelligence; }
-            set { intelligence = value; }
-        }
+		public int NumOfAbilityScoreUpgrades {
+			get { return numOfAbilityScoreUpgrades; }
+			set { numOfAbilityScoreUpgrades = value; }
+		}
 
-        public AbilityScore Wisdom {
-            get { return wisdom; }
-            set { wisdom = value; }
-        }
+		public AbilityScore Strength {
+			get { return strength; }
+			set { strength = value; }
+		}
 
-        public AbilityScore Charisma {
-            get { return charisma; }
-            set { charisma = value; }
-        }
-        #endregion
+		public AbilityScore Dexterity {
+			get { return dexterity; }
+			set { dexterity = value; }
+		}
 
-        #region Class Abilities & Feats
-        public ObservableCollection<AbilitiesFeats> Abilities {
-            get { return abilities; }
-            set { abilities = value; }
-        }
+		public AbilityScore Constitution {
+			get { return constitution; }
+			set { constitution = value; }
+		}
 
-        public ObservableCollection<AbilitiesFeats> Feats {
-            get { return feats; }
-            set { feats = value; }
-        }
-        #endregion
+		public AbilityScore Intelligence {
+			get { return intelligence; }
+			set { intelligence = value; }
+		}
 
-        #region Proficiencies
-        public ObservableCollection<Proficiency> Proficiciencies {
-            get { return proficiencies; }
-            set { proficiencies = value; }
-        }
+		public AbilityScore Wisdom {
+			get { return wisdom; }
+			set { wisdom = value; }
+		}
 
-        public ObservableCollection<Proficiency> InstrumentsGames {
-            get { return instrumentsGames; }
-            set { instrumentsGames = value; }
-        }
+		public AbilityScore Charisma {
+			get { return charisma; }
+			set { charisma = value; }
+		}
+		#endregion
 
-        public ObservableCollection<Language> Languges {
-            get { return languages; }
-            set { languages = value; }
-        }
-        #endregion
+		#region Class Abilities & Feats
+		public ObservableCollection<AbilitiesFeats> Abilities {
+			get { return abilities; }
+			set { abilities = value; }
+		}
 
-        #region XP
+		public ObservableCollection<AbilitiesFeats> Feats {
+			get { return feats; }
+			set { feats = value; }
+		}
+		#endregion
 
-        public int TotalXP {
-            get { return totalXP; }
-            set { totalXP = value; }
-        }
+		#region Proficiencies
+		public ObservableCollection<Proficiency> Proficiciencies {
+			get { return proficiencies; }
+			set { proficiencies = value; }
+		}
 
-        public int SpentXP {
-            get { return spentXP; }
-            set { spentXP = value; }
-        }
+		public ObservableCollection<Proficiency> InstrumentsGames {
+			get { return instrumentsGames; }
+			set { instrumentsGames = value; }
+		}
 
-        public int RemainingXP {
-            get { return remainingXP; }
-            set { remainingXP = totalXP-spentXP; }
-        }
+		public ObservableCollection<Language> Languges {
+			get { return languages; }
+			set { languages = value; }
+		}
+		#endregion
 
-        #endregion
+		#region XP
 
-        #endregion
-    }
+		public int TotalXP {
+			get { return totalXP; }
+			set { totalXP = value; }
+		}
+
+		public int SpentXP {
+			get { return spentXP; }
+			set { spentXP = value; }
+		}
+
+		public int RemainingXP {
+			get { return remainingXP; }
+			set { remainingXP = totalXP - spentXP; }
+		}
+
+		#endregion
+
+		#endregion
+	}
 
 }
