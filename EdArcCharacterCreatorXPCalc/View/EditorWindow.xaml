@@ -68,7 +68,7 @@
 					<Grid>
 						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
 							<Viewbox>
-								<TextBox Text="{Binding Path=CharacterToEdit.TotalXP}" PreviewTextInput="MaskNumericInput" DataObject.Pasting="MaskNumericPaste" TextChanged="ReplaceNullStringText" TextAlignment="Center" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+								<TextBox Text="{Binding CharacterToEditTotalXP}" PreviewTextInput="MaskNumericInput" DataObject.Pasting="MaskNumericPaste" TextChanged="ReplaceNullStringText" TextAlignment="Center" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
 							</Viewbox>
 						</Border>
 					</Grid>
@@ -79,7 +79,7 @@
 					<Grid>
 						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
 							<Viewbox>
-								<TextBlock Text="{Binding Path=CharacterToEdit.SpentXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
+								<TextBlock Text="{Binding CharacterToEditSpentXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
 							</Viewbox>
 						</Border>
 					</Grid>
@@ -90,7 +90,7 @@
 					<Grid>
 						<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="10,10,10,10">
 							<Viewbox>
-								<TextBlock Text="{Binding Path=CharacterToEdit.RemainingXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
+								<TextBlock Text="{Binding CharacterToEditRemainingXP}" TextAlignment="Center" Opacity="0.7"></TextBlock>
 							</Viewbox>
 						</Border>
 					</Grid>
@@ -137,6 +137,9 @@
 						
 						<!-- Point Display -->
 						<Border Grid.Row="0" Background="WhiteSmoke" BorderBrush="WhiteSmoke" Width="110" Height="80" HorizontalAlignment="Left" CornerRadius="7">
+							<Border.ToolTip>
+								<TextBlock Text="{Binding CharacterToEditNumOfAbilityScoreUpgrades, StringFormat='Times Increased: {0}'}"></TextBlock> <!-- Note: StringFormat only works on "text" properties, hence this implementation -->
+							</Border.ToolTip>
 							<Grid Margin="8,0,8,10">
 								<Grid.RowDefinitions>
 									<RowDefinition Height="*"/>

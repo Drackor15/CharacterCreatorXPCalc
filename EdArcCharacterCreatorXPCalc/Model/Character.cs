@@ -16,6 +16,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
             wisdom = new AbilityScore();
             charisma = new AbilityScore();
 
+            numOfAbilityScoreUpgrades = 0;
             abilities = new ObservableCollection<AbilitiesFeats>();
             feats = new ObservableCollection<AbilitiesFeats>();
             proficiencies = new ObservableCollection<Proficiency>();
@@ -69,6 +70,9 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 
         [DataMember]
         private int abilityScorePoints;
+
+        [DataMember]
+        private int numOfAbilityScoreUpgrades;
 
         [DataMember]
         private AbilityScore strength;
@@ -147,6 +151,11 @@ namespace EdArcCharacterCreatorXPCalc.Model {
             set { abilityScorePoints = value; }
         }
 
+        public int NumOfAbilityScoreUpgrades {
+            get { return numOfAbilityScoreUpgrades; }
+            set { numOfAbilityScoreUpgrades = value; }
+        }
+
         public AbilityScore Strength {
             get { return strength; }
             set { strength = value; }
@@ -221,7 +230,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 
         public int RemainingXP {
             get { return remainingXP; }
-            set { remainingXP = value; }
+            set { remainingXP = totalXP-spentXP; }
         }
 
         #endregion
