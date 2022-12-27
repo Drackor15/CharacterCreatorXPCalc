@@ -7,7 +7,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
      * A class used for character ability scores: Str, Dex, Con, Int, Wis, & Cha.
      */
 	[DataContract]
-	internal class AbilityScore : IBaseScore, IProficiecyModifier {
+	internal class AbilityScore : IBaseScore {
 
 		/// <summary>
 		/// Default BaseScore to 0
@@ -19,9 +19,6 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 		#region Fields
 		[DataMember]
 		private int baseScore;
-
-		[DataMember]
-		private int modifier;
 		#endregion
 
 		#region Properties
@@ -36,21 +33,6 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 				}
 				else {
 					throw new System.ArgumentOutOfRangeException();
-				}
-			}
-		}
-
-		public int Modifier {
-			get {
-				return modifier;
-			}
-
-			set {
-				if (Math.Ceiling((double)(baseScore - 10) / 2) > Math.Floor((double)(baseScore - 10) / 2)) {
-					modifier = (int)Math.Floor((double)(baseScore - 10) / 2);
-				}
-				else {
-					modifier = (int)Math.Ceiling((double)(baseScore - 10) / 2);
 				}
 			}
 		}

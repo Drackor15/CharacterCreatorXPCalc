@@ -68,7 +68,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 			character.Intelligence.BaseScore = CharacterToEditAbilityScoreBaseScores[3];
 			character.Wisdom.BaseScore = CharacterToEditAbilityScoreBaseScores[4];
 			character.Charisma.BaseScore = CharacterToEditAbilityScoreBaseScores[5];
-			// modifiers do not automagically update, so ill need to change the Model
 			character.TotalXP = CharacterToEditTotalXP;
 			character.SpentXP = CharacterToEditSpentXP;
 			character.RemainingXP = CharacterToEditRemainingXP;
@@ -340,14 +339,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 				characterToEdit.Charisma.BaseScore
 			};
 
-			characterToEditAbilityScoreModifiers = new ObservableCollection<int>() {
-				characterToEdit.Strength.Modifier,
-				characterToEdit.Dexterity.Modifier,
-				characterToEdit.Constitution.Modifier,
-				characterToEdit.Intelligence.Modifier,
-				characterToEdit.Wisdom.Modifier,
-				characterToEdit.Charisma.Modifier
-			};
+			characterToEditAbilityScoreModifiers = new ObservableCollection<int>() { 0, 0, 0, 0, 0, 0 };
 
 			for (int i = 0; i < 6; i++) {
 				CharacterToEditAbilityScoreModifiers[i] = CalcModifier(i);
