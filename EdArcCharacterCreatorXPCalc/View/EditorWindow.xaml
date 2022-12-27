@@ -628,7 +628,7 @@
 						<Grid>
 							<Border Background="White" BorderBrush="White" CornerRadius="7" Margin="20,20,20,20">
 								<Grid>
-									<TextBox Text="{Binding Path=CharacterToEdit.Description}" FontSize="16" TextWrapping="Wrap" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
+									<TextBox Text="{Binding CharacterToEditDescription}" FontSize="16" TextWrapping="Wrap" Opacity="0.7" BorderThickness="0,0,0,0"></TextBox>
 								</Grid>
 							</Border>
 						</Grid>

@@ -52,7 +52,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		}
 
 		private void OnEditCharacter(object commandParameter) {
-			EditorWindow editorWindow = new EditorWindow(commandParameter);
+			EditorWindow editorWindow = new EditorWindow(commandParameter, CharacterLibrary.IndexOf((Character)commandParameter));
 			editorWindow.Show();
 			//EditorViewModel editorViewModel = new EditorViewModel((Character)commandParameter);
 		}

@@ -10,8 +10,8 @@ namespace EdArcCharacterCreatorXPCalc.View {
 	/// Interaction logic for EditorWindow.xaml
 	/// </summary>
 	public partial class EditorWindow : Window {
-		public EditorWindow(object character) {
-			var editorViewModel = new EditorViewModel((Character)character);
+		public EditorWindow(object character, int characterLibraryIndex) {
+			var editorViewModel = new EditorViewModel((Character)character, characterLibraryIndex);
 
 			DataContext = editorViewModel;
 			InitializeComponent();

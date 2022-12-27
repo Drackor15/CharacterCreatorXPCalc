@@ -1,7 +1,9 @@
 using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using EdArcCharacterCreatorXPCalc.Model;
+using System.Diagnostics;
 
 namespace EdArcCharacterCreatorXPCalc.ViewModel {
 	internal class EditorViewModel : ViewModelBase {
@@ -51,6 +53,28 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		#endregion
 
 		#region Methods
+		private void UpdateProperties() {
+			MainViewModel mainViewModel = (MainViewModel)Application.Current.MainWindow.DataContext;
+			Character character = new Character();
+			character.Name = CharacterToEditName;
+			character.Description = CharacterToEditDescription;
+			character.Health = CharacterToEditHealth;
+			character.Mana = CharacterToEditMana;
+			character.AbilityScorePoints = CharacterToEditAbilityScorePoints;
+			character.NumOfAbilityScoreUpgrades = CharacterToEditNumOfAbilityScoreUpgrades;
+			character.Strength.BaseScore = CharacterToEditAbilityScoreBaseScores[0];
+			character.Dexterity.BaseScore = CharacterToEditAbilityScoreBaseScores[1];
+			character.Constitution.BaseScore = CharacterToEditAbilityScoreBaseScores[2];
+			character.Intelligence.BaseScore = CharacterToEditAbilityScoreBaseScores[3];
+			character.Wisdom.BaseScore = CharacterToEditAbilityScoreBaseScores[4];
+			character.Charisma.BaseScore = CharacterToEditAbilityScoreBaseScores[5];
+			// modifiers do not automagically update, so ill need to change the Model
+			character.TotalXP = CharacterToEditTotalXP;
+			character.SpentXP = CharacterToEditSpentXP;
+			character.RemainingXP = CharacterToEditRemainingXP;
+			mainViewModel.CharacterLibrary[CharacterToEditLibraryIndex] = character;
+		}
+
 		private int CalcModifier(int index) {
 			if (Math.Ceiling((double)(CharacterToEditAbilityScoreBaseScores[index] - 10) / 2) > Math.Floor((double)(CharacterToEditAbilityScoreBaseScores[index] - 10) / 2)) {
 				return (int)Math.Floor((double)(CharacterToEditAbilityScoreBaseScores[index] - 10) / 2);
@@ -154,7 +178,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		#endregion
 
 		#region Data Context
-		private Character characterToEdit;
 		private string characterToEditName;
 		private string characterToEditDescription;
 		private int characterToEditHealth;
@@ -171,40 +194,54 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		private int characterToEditTotalXP;
 		private int characterToEditSpentXP;
 		private int characterToEditRemainingXP;
-
-		public Character CharacterToEdit {
-			get => characterToEdit;
-			set => SetProperty(ref characterToEdit, value);
-		}
+		private int characterToEditLibraryIndex;
 
 		public string CharacterToEditName {
 			get => characterToEditName;
-			set => SetProperty(ref characterToEditName, value);
+			set {
+				SetProperty(ref characterToEditName, value);
+				UpdateProperties();
+			}
 		}
 
 		public string CharacterToEditDescription {
 			get => characterToEditDescription;
-			set => SetProperty(ref characterToEditDescription, value);
+			set {
+				SetProperty(ref characterToEditDescription, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditHealth {
 			get => characterToEditHealth;
-			set => SetProperty(ref characterToEditHealth, value);
+			set {
+				SetProperty(ref characterToEditHealth, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditMana {
 			get => characterToEditMana;
-			set => SetProperty(ref characterToEditMana, value);
+			set {
+				SetProperty(ref characterToEditMana, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditAbilityScorePoints {
 			get => characterToEditAbilityScorePoints;
-			set => SetProperty(ref characterToEditAbilityScorePoints, value);
+			set {
+				SetProperty(ref characterToEditAbilityScorePoints, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditNumOfAbilityScoreUpgrades {
 			get => characterToEditNumOfAbilityScoreUpgrades;
-			set => SetProperty(ref characterToEditNumOfAbilityScoreUpgrades, value);
+			set {
+				SetProperty(ref characterToEditNumOfAbilityScoreUpgrades, value);
+				UpdateProperties();
+			}
 		}
 
 		/// <summary>
@@ -220,7 +257,10 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		/// </summary>
 		public ObservableCollection<int> CharacterToEditAbilityScoreBaseScores {
 			get => characterToEditAbilityScoreBaseScores;
-			set => SetProperty(ref characterToEditAbilityScoreBaseScores, value);
+			set {
+				SetProperty(ref characterToEditAbilityScoreBaseScores, value);
+				UpdateProperties();
+			}
 		}
 
 		/// <summary>
@@ -236,36 +276,53 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		/// </summary>
 		public ObservableCollection<int> CharacterToEditAbilityScoreModifiers {
 			get => characterToEditAbilityScoreModifiers;
-			set => SetProperty(ref characterToEditAbilityScoreModifiers, value);
+			set {
+				SetProperty(ref characterToEditAbilityScoreModifiers, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditTotalXP {
 			get => characterToEditTotalXP;
-			set => SetProperty(ref characterToEditTotalXP, value);
+			set {
+				SetProperty(ref characterToEditTotalXP, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditSpentXP {
 			get => characterToEditSpentXP;
-			set => SetProperty(ref characterToEditSpentXP, value);
+			set {
+				SetProperty(ref characterToEditSpentXP, value);
+				UpdateProperties();
+			}
 		}
 
 		public int CharacterToEditRemainingXP {
 			get => characterToEditRemainingXP;
-			set => SetProperty(ref characterToEditRemainingXP, value);
+			set {
+				SetProperty(ref characterToEditRemainingXP, value);
+				UpdateProperties();
+			}
+		}
+
+		public int CharacterToEditLibraryIndex {
+			get => characterToEditLibraryIndex;
+			set => SetProperty(ref characterToEditLibraryIndex, value);
 		}
 
 		// create an ability scores ENUM so that passing params is easier to read?
 
 		#endregion
 
-		public EditorViewModel(Character CharacterToEdit) {
+		public EditorViewModel(Character characterToEdit, int characterToEditLibraryIndex) {
 			#region Commands
 			increaseAbilityScoreCommand = new DelegateCommand(OnIncreaseAbilityScore, CanIncreaseAbilityScore);
 			decreaseAbilityScoreCommand = new DelegateCommand(OnDecreaseAbilityScore, CanDecreaseAbilityScore);
 			#endregion
 
 			// Initialize Data Context
-			characterToEdit = CharacterToEdit;
+
 			characterToEditName = characterToEdit.Name;
 			characterToEditDescription = characterToEdit.Description;
 			characterToEditHealth = characterToEdit.Health;
@@ -300,6 +357,8 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 			characterToEditTotalXP = characterToEdit.TotalXP;
 			characterToEditSpentXP = characterToEdit.SpentXP;
 			characterToEditRemainingXP = characterToEdit.RemainingXP;
+
+			this.characterToEditLibraryIndex = characterToEditLibraryIndex;
 		}
 
 	}
