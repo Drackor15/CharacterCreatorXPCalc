@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:EdArcCharacterCreatorXPCalc.View"
         xmlns:model="clr-namespace:EdArcCharacterCreatorXPCalc.Model"
         xmlns:viewmodel="clr-namespace:EdArcCharacterCreatorXPCalc.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
-        xmlns:dataTypes="clr-namespace:System;assembly=mscorlib"
+        
         mc:Ignorable="d"
         Title="XP Calculator - EdArc 1e" Height="450" Width="800" MinHeight="300" MinWidth="470" WindowState="Maximized">
 
@@ -29,118 +29,9 @@
 				</Button>
 
 				<!-- New Character Button -->
-				<Menu Height="31" Width="31" ToolTip="New Character">
-					<MenuItem Height="31" Width="31">
-						<MenuItem.Icon>
-							<Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
-						</MenuItem.Icon>
-						<MenuItem Header="Lvl 0" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>0</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 1" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 2" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>900</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 3" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>1500</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 4" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>3300</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 5" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>7100</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 6" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>14600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 7" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>23600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 8" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>34600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 9" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>48600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 10" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>64600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 11" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>85600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 12" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>100600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 13" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>120600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 14" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>140600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 15" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>165600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 16" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>195600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 17" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>225600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 18" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>265600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 19" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>305600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-						<MenuItem Header="Lvl 20" Command="{Binding Path=AddCharacterCommand}">
-							<MenuItem.CommandParameter>
-								<dataTypes:Int32>355600</dataTypes:Int32>
-							</MenuItem.CommandParameter>
-						</MenuItem>
-					</MenuItem>
-				</Menu>
+				<Button Height="31" Width="31" ToolTip="New Character" Command="{Binding NewCharacterDialogCommand}">
+					<Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
+				</Button>
 
 			</ToolBar>
 		</ToolBarTray>

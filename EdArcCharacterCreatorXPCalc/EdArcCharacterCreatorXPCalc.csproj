@@ -13,7 +13,12 @@
     <None Remove="View\UIImages\delete.png" />
     <None Remove="View\UIImages\edit_modern.png" />
     <None Remove="View\UIImages\Icon_Save.png" />
+    <None Remove="View\UIImages\initial_xp_menu.png" />
+    <None Remove="View\UIImages\manual_menu.png" />
     <None Remove="View\UIImages\minus.png" />
+    <None Remove="View\UIImages\point_buy_menu.png" />
+    <None Remove="View\UIImages\standard_array_menu.png" />
+    <None Remove="View\UIImages\standard_array_menu_1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +28,11 @@
     <Resource Include="View\UIImages\delete.png" />
     <Resource Include="View\UIImages\edit_modern.png" />
     <Resource Include="View\UIImages\Icon_Save.png" />
+    <Resource Include="View\UIImages\initial_xp_menu.png" />
+    <Resource Include="View\UIImages\manual_menu.png" />
     <Resource Include="View\UIImages\minus.png" />
+    <Resource Include="View\UIImages\point_buy_menu.png" />
+    <Resource Include="View\UIImages\standard_array_menu.png" />
   </ItemGroup>
 
 </Project>
