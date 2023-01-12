@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using EdArcCharacterCreatorXPCalc.Model;
 using System.Diagnostics;
+using EdArcCharacterCreatorXPCalc.View;
 
 namespace EdArcCharacterCreatorXPCalc.ViewModel {
 	internal class EditorViewModel : ViewModelBase {
@@ -11,9 +12,29 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		#region Commands
 		private readonly DelegateCommand increaseAbilityScoreCommand;
 		private readonly DelegateCommand decreaseAbilityScoreCommand;
+		private readonly DelegateCommand newCharacterDialogCommand;
 
 		public ICommand IncreaseAbilityScoreCommand => increaseAbilityScoreCommand;
 		public ICommand DecreaseAbilityScoreCommand => decreaseAbilityScoreCommand;
+		public ICommand NewCharacterDialogCommand => newCharacterDialogCommand;
+
+		private void OnNewCharacterDialog(object commandParameter) {
+			// Instantiate window
+			InitializeCharacterDialog newCharacterDialogBox = new InitializeCharacterDialog();
+
+			// Show window modally
+			// NOTE: Returns only when window is closed
+			newCharacterDialogBox.ShowDialog();
+			// OnCancel
+			// OnOk
+			// then call add character (return character you just created)
+			// then open newcharacter in edit window (pass character you just created to edit command)
+		}
+
+		private bool CanNewCharacterDialog(object commandParameter) {
+			/*return conditions in which OnCommand should & shouldn't execute*/
+			return true; // this is a placeholder
+		}
 
 		private void OnIncreaseAbilityScore(object commandParameter) {
 			if (CharacterToEditAbilityScorePoints > 0) {
@@ -318,6 +339,7 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 			#region Commands
 			increaseAbilityScoreCommand = new DelegateCommand(OnIncreaseAbilityScore, CanIncreaseAbilityScore);
 			decreaseAbilityScoreCommand = new DelegateCommand(OnDecreaseAbilityScore, CanDecreaseAbilityScore);
+			newCharacterDialogCommand = new DelegateCommand(OnNewCharacterDialog, CanNewCharacterDialog);
 			#endregion
 
 			// Initialize Data Context

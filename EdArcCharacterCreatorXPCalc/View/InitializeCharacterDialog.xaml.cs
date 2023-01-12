@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Linq;
 using EdArcCharacterCreatorXPCalc.ViewModel;
 
 namespace EdArcCharacterCreatorXPCalc.View {
@@ -22,5 +15,41 @@ namespace EdArcCharacterCreatorXPCalc.View {
 			DataContext = initializeCharacterDialogViewModel;
 			InitializeComponent();
 		}
+
+		#region EventHandlers
+		/*
+         * Following code found in: https://stackoverflow.com/questions/14813960/how-to-accept-only-integers-in-a-wpf-textbox
+         */
+		private void MaskNumericInput(object sender, TextCompositionEventArgs e) {
+			e.Handled = !IsTextNumber(e.Text);
+		}
+
+		private void MaskNumericPaste(object sender, DataObjectPastingEventArgs e) {
+			if (e.DataObject.GetDataPresent(typeof(string))) {
+				string input = (string)e.DataObject.GetData(typeof(string));
+				if (!IsTextNumber(input)) {
+					e.CancelCommand();
+				}
+			}
+			else {
+				e.CancelCommand();
+			}
+		}
+
+		private bool IsTextNumber(string input) {
+			return input.All(c => char.IsDigit(c) || char.IsControl(c));
+		}
+		/**************/
+
+		private void ReplaceNullStringText(object sender, TextChangedEventArgs e) {
+			var control = sender as TextBox;
+			if (control.Text == "") {
+				control.Text = "0";
+			}
+			if (control.Text.Contains(" ")) {
+				control.Text = new string(control.Text.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
+			}
+		}
+		#endregion
 	}
 }

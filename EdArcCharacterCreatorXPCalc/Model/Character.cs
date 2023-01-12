@@ -230,7 +230,7 @@ namespace EdArcCharacterCreatorXPCalc.Model {
 
 		public int RemainingXP {
 			get { return remainingXP; }
-			set { remainingXP = totalXP - spentXP; }
+			set { remainingXP = value; }
 		}
 
 		#endregion

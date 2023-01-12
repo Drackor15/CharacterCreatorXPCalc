@@ -12,34 +12,14 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 	internal class MainViewModel : ViewModelBase {
 
 		#region Application Commands
-		private readonly DelegateCommand newCharacterDialogCommand;
 		private readonly DelegateCommand addCharacterCommand;
 		private readonly DelegateCommand deleteCharacterCommand;
 		private readonly DelegateCommand editCharacterCommand;
 		private readonly DelegateCommand saveLibraryCommand;
-		public ICommand NewCharacterDialogCommand => newCharacterDialogCommand;
 		public ICommand AddCharacterCommand => addCharacterCommand;
 		public ICommand DeleteCharacterCommand => deleteCharacterCommand;
 		public ICommand EditCharacterCommand => editCharacterCommand;
 		public ICommand SaveLibraryCommand => saveLibraryCommand;
-		
-		private void OnNewCharacterDialog(object commandParameter) {
-			// Instantiate window
-			InitializeCharacterDialog newCharacterDialogBox = new InitializeCharacterDialog();
-
-			// Show window modally
-			// NOTE: Returns only when window is closed
-			newCharacterDialogBox.ShowDialog();
-			// OnCancel
-			// OnOk
-			// then call add character (return character you just created)
-			// then open newcharacter in edit window (pass character you just created to edit command)
-		}
-
-		private bool CanNewCharacterDialog(object commandParameter) {
-			/*return conditions in which OnCommand should & shouldn't execute*/
-			return true; // this is a placeholder
-		}
 
 		private void OnAddCharacter(object commandParameter) {
 			Character newCharacter = new Character();
@@ -47,7 +27,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 			newCharacter.Description = "Description...";
 			newCharacter.Health = 0;
 			newCharacter.Mana = 0;
-			newCharacter.TotalXP = (int)commandParameter;
 
 			if (CharacterLibrary == null) {
 				CharacterLibrary = new ObservableCollection<Character> { };
@@ -121,7 +100,6 @@ namespace EdArcCharacterCreatorXPCalc.ViewModel {
 		public MainViewModel() {
 
 			#region Commands
-			newCharacterDialogCommand = new DelegateCommand(OnNewCharacterDialog, CanNewCharacterDialog);
 			addCharacterCommand = new DelegateCommand(OnAddCharacter, CanAddCharacter);
 			deleteCharacterCommand = new DelegateCommand(OnDeleteCharacter, CanDeleteCharacter);
 			editCharacterCommand = new DelegateCommand(OnEditCharacter, CanEditCharacter);

@@ -4,6 +4,7 @@ using EdArcCharacterCreatorXPCalc.ViewModel;
 using System.Windows.Input;
 using System.Linq;
 using System.Windows.Controls;
+using System;
 
 namespace EdArcCharacterCreatorXPCalc.View {
 	/// <summary>
@@ -41,6 +42,17 @@ namespace EdArcCharacterCreatorXPCalc.View {
 			return input.All(c => char.IsDigit(c) || char.IsControl(c));
 		}
 		/**************/
+		private void TotalXPMethods(object sender, TextChangedEventArgs e) {
+			ReplaceNullStringText(sender, e);
+			UpdateRemainingXPDisplay(sender, e);
+		}
+
+		private void UpdateRemainingXPDisplay(object sender, TextChangedEventArgs e) {
+			EditorViewModel editorViewModel = (EditorViewModel)this.DataContext;
+			TextBox totalXPTextBox = (TextBox)sender;
+			Int32.TryParse(totalXPTextBox.Text, out int totalXP);
+			editorViewModel.CharacterToEditRemainingXP = totalXP - editorViewModel.CharacterToEditSpentXP;
+		}
 
 		private void ReplaceNullStringText(object sender, TextChangedEventArgs e) {
 			var control = sender as TextBox;

@@ -29,7 +29,7 @@
 				</Button>
 
 				<!-- New Character Button -->
-				<Button Height="31" Width="31" ToolTip="New Character" Command="{Binding NewCharacterDialogCommand}">
+				<Button Height="31" Width="31" ToolTip="New Character" Command="{Binding AddCharacterCommand}">
 					<Image Source="UIImages/add.png" MinHeight="15" MinWidth="15"/>
 				</Button>
 
