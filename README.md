@@ -15,7 +15,7 @@ Objects highlighted in Green are finished, Yellow are in progress, & blank ones 
 ###### Future Features:
 * __Drag & Drop.__ I want users to be able to organize their Character's as they see fit (WPF has functionality that makes this easy to learn).
 * __Application Themes.__ Right now, the program sports a bright modern look, I'd like to make two themes: Dark & Fantasy.
-* __Platform Friendly.__ The application only functions on a Windows enviroment. I'd like to create Web & Mobile versions.
+* __Platform Friendly.__ The application only functions on a Windows enviroment. I'd like to create Web & Mobile versions. It looks like [Uno](https://platform.uno/) might be a strong candidate.
 * __Templates.__ Allow users to save/load entire characters or certain traits to/from 'templates'. This feature should reduce the tedium of creating another fighter-based (for example) character or ctrl+c/ctrl+v-ing common ability descriptions for the 10th time.
 
 ## Installation:
